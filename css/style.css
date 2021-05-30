@@ -1,0 +1,47 @@
+body{
+    background: antiquewhite;
+
+}
+img{
+    width: 20%;
+    height: 100px;
+}
+
+nav ul{
+    display: inline-flex;
+    float: right;
+    padding: 60px;
+    font-size: 30px;
+}
+
+nav ul li a{
+    margin-right: 30px;
+
+    color: brown;
+    text-decoration: none;
+
+}
+header{
+    margin-bottom: 50px;
+}
+
+#parent , #parent2 ,#parent3 , #parent4 , #parent5{
+    padding: 40px;
+}
+
+#parent{
+    background: rgb(174, 208, 238);
+}
+
+#parent2{
+    background: azure;
+}
+#parent3{
+    background: cadetblue;
+}
+#parent4{
+    background: rgb(235, 198, 149);
+}
+#parent5{
+    background: rgb(245, 163, 138);
+}
