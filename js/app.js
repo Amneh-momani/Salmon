@@ -294,9 +294,7 @@ makingHeader();
 
 
 let totalHours = [];
-// let calc = 0;
-let arrayHour = [];
-let hour6am = 0;
+
 
 function Country(name, min, max, avg, avgArr, custn, total) {
 
@@ -320,14 +318,7 @@ function Country(name, min, max, avg, avgArr, custn, total) {
       multi = this.custn[n] * this.avg;
       this.avgArr.push(multi);
       this.total += this.avgArr[n];
-      hour6am +=multi[n];
-      arrayHour.push(hour6am);
-
-      // for(let x=0;x<hour.length;x++){
-      //  hour6am +=this.custn[x];
-      // }
     }
-    hour6am=0;
   };
   totalHours.push(this);
 
@@ -336,41 +327,28 @@ function Country(name, min, max, avg, avgArr, custn, total) {
 
 let Seattle = new Country('Seattle', 23, 65, 6.3, [], [], 0);
 
-// Seattle.custNum();
-// Seattle.sumFun();
+Seattle.custNum();
+Seattle.sumFun();
 
 let Tokyo = new Country('Tokyo', 3, 24, 1.2, [], [], 0);
-// Tokyo.custNum();
-// Tokyo.sumFun();
+Tokyo.custNum();
+Tokyo.sumFun();
 
 let Dubai = new Country('Dubai', 11, 38, 3.7, [], [], 0);
-// Dubai.custNum();
-// Dubai.sumFun();
+Dubai.custNum();
+Dubai.sumFun();
 let Paris = new Country('Paris', 20, 38, 2.3, [], [], 0);
-// Paris.custNum();
-// Paris.sumFun();
+Paris.custNum();
+Paris.sumFun();
 
 let Lima = new Country('Lima', 2, 16, 4.6, [], [], 0);
-// Lima.custNum();
-// Lima.sumFun();
+Lima.custNum();
+Lima.sumFun();
 
 
 let dialyCalc = 0;
-// let arrayHour = [];
-// let hour6am = 0;
-// let hour7am = 0;
-// let hour8am = 0;
-// let hour9am = 0;
-// let hour10am = 0;
-// let hour11am = 0;
-// let hour12pm = 0;
-// let hour1pm = 0;
-// let hour2pm = 0;
-// let hour3pm = 0;
-// let hour4pm = 0;
-// let hour5pm = 0;
-// let hour6pm = 0;
-// let hour7pm = 0;
+let arrayHour = [];
+let hourtotal = 0;
 
 
 Country.prototype.render = function () {
@@ -389,55 +367,47 @@ Country.prototype.render = function () {
   for (let x = 0; x < hour.length; x++) {
     let hourTd = document.createElement('td');
     studentRow.appendChild(hourTd);
-    hourTd.textContent = Math.floor(this.avgArr[x])
+    hourTd.textContent = Math.floor(this.avgArr[x]);
 
   }
-
-
   let lastEle = document.createElement('td');
   studentRow.appendChild(lastEle);
   lastEle.textContent = Math.floor(this.total);
   dialyCalc += this.total;
-  //  lastEle.textContent;
 
 
 };
 
-// Seattle.render();
-// Tokyo.render();
-// Paris.render();
-// Dubai.render();
-// Lima.render();
+
+
+Seattle.render();
+Tokyo.render();
+Paris.render();
+Dubai.render();
+Lima.render();
+
+
+Country.prototype.totalHour = function () {
+
+  for (let x = 0; x < hour.length; x++) {
+    hourtotal += Math.floor(this.avgArr[x]);
+  }
+  arrayHour.push(hourtotal);
+  // console.log(arrayHour);
+  hourtotal = 0;
+};
+
+for (let i = 0; i < hour.length; i++) {
+  Seattle.totalHour();
+  Tokyo.totalHour();
+  Paris.totalHour();
+  Dubai.totalHour();
+  Lima.totalHour();
+}
+
 
 
 function makingFooter() {
-  //  render();
-  // let Seattle = new Country('Seattle', 23, 65, 6.3, [], [], 0);
-
-  Seattle.custNum();
-  Seattle.sumFun();
-
-  // let Tokyo = new Country('Tokyo', 3, 24, 1.2, [], [], 0);
-  Tokyo.custNum();
-  Tokyo.sumFun();
-
-  // let Dubai = new Country('Dubai', 11, 38, 3.7, [], [], 0);
-  Dubai.custNum();
-  Dubai.sumFun();
-  // let Paris = new Country('Paris', 20, 38, 2.3, [], [], 0);
-  Paris.custNum();
-  Paris.sumFun();
-
-  // let Lima = new Country('Lima', 2, 16, 4.6, [], [], 0);
-  Lima.custNum();
-  Lima.sumFun();
-
-  Seattle.render();
-  Tokyo.render();
-  Paris.render();
-  Dubai.render();
-  Lima.render();
-
   let headingRow = document.createElement('tr');
   table.appendChild(headingRow);
   let thElement = document.createElement('th');
@@ -448,18 +418,13 @@ function makingFooter() {
     let thElement = document.createElement('th');
     headingRow.appendChild(thElement);
     thElement.textContent = arrayHour[x];
-    console.log(arrayHour[x]);
   }
   console.log();
   let lastElement = document.createElement('th');
   headingRow.appendChild(lastElement);
-  lastElement.textContent = dialyCalc;
+  lastElement.textContent = Math.floor(dialyCalc);
 }
 makingFooter();
-// Seattle.makingFooter();
-// Paris.makingFooter();
-// Tokyo.makingFooter();
-// Dubai.makingFooter();
-// Lima.makingFooter();
+
 
 
