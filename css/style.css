@@ -45,3 +45,8 @@ header{
 #parent5{
     background: rgb(245, 163, 138);
 }
+
+table,th,td {
+    border: solid black 1px;
+    border-collapse: collapse;
+  }
