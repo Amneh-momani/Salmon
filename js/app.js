@@ -13,6 +13,7 @@ let Seattle = {
   avg: 6.3,
   avgArr: [],
   custn: [],
+  total: 0,
   custNum: function () {
     for (let i = 0; i < hour.length; i++) {
       let x = getRandomArbitrary(this.min, this.max);
@@ -23,7 +24,28 @@ let Seattle = {
     for (let n = 0; n < hour.length; n++) {
       multi = this.custn[n] * this.avg;
       this.avgArr.push(multi);
+      this.total += this.avgArr[n];
     }
+  }, render: function () {
+
+    let parent = document.getElementById('main');
+    let parent1 = document.createElement('ul');
+    parent.appendChild(parent1);
+    let h4element = document.createElement('h1');
+    parent1.appendChild(h4element);
+    h4element.textContent = 'Seattle';
+    for (let x = 0; x < hour.length; x++) {
+      let li = document.createElement('li');
+      parent1.appendChild(li);
+      Seattle.custNum();
+      li.textContent = `${hour[x]} : ${Math.floor(Seattle.avgArr[x])} cookies`;
+    }
+
+    let li = document.createElement('li');
+    parent1.appendChild(li);
+    li.textContent = 'Total : ' + Math.floor(Seattle.total);
+
+
   }
 
 };
@@ -32,16 +54,7 @@ Seattle.custNum();
 console.log(Seattle.custn);
 Seattle.sumFun();
 console.log(Seattle.avgArr);
-
-let parent1 = document.getElementById('parent');
-parent1.textContent = 'Seattle';
-for (let x = 0; x < hour.length; x++) {
-  let li = document.createElement('li');
-  parent1.appendChild(li);
-  Seattle.custNum();
-  li.textContent = `${hour[x]} : ${Math.floor(Seattle.avgArr[x])} cookies`;
-}
-
+Seattle.render();
 
 
 
@@ -54,6 +67,7 @@ let Tokyo = {
   avg: 1.2,
   avgArr: [],
   custn: [],
+  total: 0,
   custNum: function () {
     for (let i = 0; i < hour.length; i++) {
       let x = getRandomArbitrary(this.min, this.max);
@@ -64,7 +78,29 @@ let Tokyo = {
     for (let n = 0; n < hour.length; n++) {
       multi = this.custn[n] * this.avg;
       this.avgArr.push(multi);
+      this.total += this.avgArr[n];
+
     }
+  }, render: function () {
+
+    let parent = document.getElementById('main');
+    let parent2 = document.createElement('ul');
+    parent.appendChild(parent2);
+    let h4element = document.createElement('h1');
+    parent2.appendChild(h4element);
+    h4element.textContent = 'Tokyo';
+    for (let x = 0; x < hour.length; x++) {
+      let li = document.createElement('li');
+      parent2.appendChild(li);
+      Tokyo.custNum();
+      li.textContent = `${hour[x]} : ${Math.floor(Tokyo.avgArr[x])} cookies`;
+    }
+
+    let li = document.createElement('li');
+    parent2.appendChild(li);
+    li.textContent = 'Total : ' + Math.floor(Tokyo.total);
+
+
   }
 
 };
@@ -73,16 +109,7 @@ Tokyo.custNum();
 console.log(Tokyo.custn);
 Tokyo.sumFun();
 console.log(Tokyo.avgArr);
-
-let Tokyopar = document.getElementById('parent2');
-Tokyopar.textContent = 'Tokyo';
-for (let x = 0; x < hour.length; x++) {
-  let li = document.createElement('li');
-  Tokyopar.appendChild(li);
-  Tokyo.custNum();
-  li.textContent = `${hour[x]} : ${Math.floor(Tokyo.avgArr[x])} cookies`;
-}
-
+Tokyo.render();
 
 
 let Dubai = {
@@ -91,6 +118,7 @@ let Dubai = {
   avg: 3.7,
   avgArr: [],
   custn: [],
+  total: 0,
   custNum: function () {
     for (let i = 0; i < hour.length; i++) {
       let x = getRandomArbitrary(this.min, this.max);
@@ -101,7 +129,29 @@ let Dubai = {
     for (let n = 0; n < hour.length; n++) {
       multi = this.custn[n] * this.avg;
       this.avgArr.push(multi);
+      this.total += this.avgArr[n];
+
     }
+  }, render: function () {
+
+    let parent = document.getElementById('main');
+    let parent2 = document.createElement('ul');
+    parent.appendChild(parent2);
+    let h4element = document.createElement('h1');
+    parent2.appendChild(h4element);
+    h4element.textContent = 'Dubai';
+    for (let x = 0; x < hour.length; x++) {
+      let li = document.createElement('li');
+      parent2.appendChild(li);
+      Dubai.custNum();
+      li.textContent = `${hour[x]} : ${Math.floor(Dubai.avgArr[x])} cookies`;
+    }
+
+    let li = document.createElement('li');
+    parent2.appendChild(li);
+    li.textContent = 'Total : ' + Math.floor(Dubai.total);
+
+
   }
 
 };
@@ -110,15 +160,8 @@ Dubai.custNum();
 console.log(Dubai.custn);
 Dubai.sumFun();
 console.log(Dubai.avgArr);
+Dubai.render();
 
-let parent3 = document.getElementById('parent3');
-parent3.textContent = 'Dubai';
-for (let x = 0; x < hour.length; x++) {
-  let li = document.createElement('li');
-  parent3.appendChild(li);
-  Dubai.custNum();
-  li.textContent = `${hour[x]} : ${Math.floor(Dubai.avgArr[x])} cookies`;
-}
 
 
 
@@ -128,6 +171,7 @@ let Paris = {
   avg: 2.3,
   avgArr: [],
   custn: [],
+  total: 0,
   custNum: function () {
     for (let i = 0; i < hour.length; i++) {
       let x = getRandomArbitrary(this.min, this.max);
@@ -138,7 +182,29 @@ let Paris = {
     for (let n = 0; n < hour.length; n++) {
       multi = this.custn[n] * this.avg;
       this.avgArr.push(multi);
+      this.total += this.avgArr[n];
+
     }
+  }, render: function () {
+
+    let parent = document.getElementById('main');
+    let parent2 = document.createElement('ul');
+    parent.appendChild(parent2);
+    let h4element = document.createElement('h1');
+    parent2.appendChild(h4element);
+    h4element.textContent = 'Paris';
+    for (let x = 0; x < hour.length; x++) {
+      let li = document.createElement('li');
+      parent2.appendChild(li);
+      Paris.custNum();
+      li.textContent = `${hour[x]} : ${Math.floor(Paris.avgArr[x])} cookies`;
+    }
+
+    let li = document.createElement('li');
+    parent2.appendChild(li);
+    li.textContent = 'Total : ' + Math.floor(Paris.total);
+
+
   }
 
 };
@@ -147,15 +213,8 @@ Paris.custNum();
 console.log(Paris.custn);
 Paris.sumFun();
 console.log(Paris.avgArr);
+Paris.render();
 
-let parent4 = document.getElementById('parent4');
-parent4.textContent = 'Paris';
-for (let x = 0; x < hour.length; x++) {
-  let li = document.createElement('li');
-  parent4.appendChild(li);
-  Paris.custNum();
-  li.textContent = `${hour[x]} : ${Math.floor(Paris.avgArr[x])} cookies`;
-}
 
 
 
@@ -165,6 +224,7 @@ let Lima = {
   avg: 4.6,
   avgArr: [],
   custn: [],
+  total: 0,
   custNum: function () {
     for (let i = 0; i < hour.length; i++) {
       let x = getRandomArbitrary(this.min, this.max);
@@ -175,7 +235,28 @@ let Lima = {
     for (let n = 0; n < hour.length; n++) {
       multi = this.custn[n] * this.avg;
       this.avgArr.push(multi);
+      this.total += this.avgArr[n];
     }
+  }, render: function () {
+
+    let parent = document.getElementById('main');
+    let parent2 = document.createElement('ul');
+    parent.appendChild(parent2);
+    let h4element = document.createElement('h1');
+    parent2.appendChild(h4element);
+    h4element.textContent = 'Lima';
+    for (let x = 0; x < hour.length; x++) {
+      let li = document.createElement('li');
+      parent2.appendChild(li);
+      Lima.custNum();
+      li.textContent = `${hour[x]} : ${Math.floor(Lima.avgArr[x])} cookies`;
+    }
+
+    let li = document.createElement('li');
+    parent2.appendChild(li);
+    li.textContent = 'Total : ' + Math.floor(Lima.total);
+
+
   }
 
 };
@@ -184,14 +265,7 @@ Lima.custNum();
 console.log(Lima.custn);
 Lima.sumFun();
 console.log(Lima.avgArr);
+Lima.render();
 
-let parent5 = document.getElementById('parent5');
-parent5.textContent = 'Lima';
-for (let x = 0; x < hour.length; x++) {
-  let li = document.createElement('li');
-  parent5.appendChild(li);
-  Lima.custNum();
-  li.textContent = `${hour[x]} : ${Math.floor(Lima.avgArr[x])} cookies`;
-}
 
 
