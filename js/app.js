@@ -328,8 +328,6 @@ Country.prototype.sumFun = function () {
 
 
 let dialyCalc = 0;
-let arrayHour = [];
-let hourtotal = 0;
 
 
 Country.prototype.render = function () {
@@ -355,19 +353,6 @@ Country.prototype.render = function () {
 };
 
 
-
-let Seattle = new Country('Seattle', 23, 65, 6.3, [], [], 0);
-let Tokyo = new Country('Tokyo', 3, 24, 1.2, [], [], 0);
-let Dubai = new Country('Dubai', 11, 38, 3.7, [], [], 0);
-let Paris = new Country('Paris', 20, 38, 2.3, [], [], 0);
-let Lima = new Country('Lima', 2, 16, 4.6, [], [], 0);
-
-for (let y = 0; y < hour.length; y++) {
-  totalHours[y].custNum();
-  totalHours[y].sumFun();
-  totalHours[y].render();
-}
-
 function makingFooter() {
   let headingRow = document.createElement('tr');
   table.appendChild(headingRow);
@@ -376,19 +361,33 @@ function makingFooter() {
   thElement.textContent = 'Totals';
 
   for (let x = 0; x < hour.length; x++) {
-    for(let j=0;j<totalHours.length;j++){
-      hourtotal+= totalHours[x].avgArr[j];
+    let hourtotal = 0;
 
+    for (let j = 0; j < totalHours.length; j++) {
+      hourtotal += totalHours[j].avgArr[x];
     }
     let thElement = document.createElement('th');
     headingRow.appendChild(thElement);
-    thElement.textContent = hourtotal;
+    thElement.textContent = Math.floor(hourtotal);
   }
   console.log();
   let lastElement = document.createElement('th');
   headingRow.appendChild(lastElement);
   lastElement.textContent = Math.floor(dialyCalc);
 }
+
+let Seattle = new Country('Seattle', 23, 65, 6.3, [], [], 0);
+let Tokyo = new Country('Tokyo', 3, 24, 1.2, [], [], 0);
+let Dubai = new Country('Dubai', 11, 38, 3.7, [], [], 0);
+let Paris = new Country('Paris', 20, 38, 2.3, [], [], 0);
+let Lima = new Country('Lima', 2, 16, 4.6, [], [], 0);
+
+for (let y = 0; y < totalHours.length; y++) {
+  totalHours[y].custNum();
+  totalHours[y].sumFun();
+  totalHours[y].render();
+}
+
 makingFooter();
 
 
