@@ -2,7 +2,7 @@ body{
     background: antiquewhite;
 
 }
-img{
+nav img{
     width: 20%;
     height: 100px;
 }
@@ -46,7 +46,69 @@ header{
     background: rgb(245, 163, 138);
 }
 
+#table {
+    border: dashed rgb(202, 169, 20) 10px;
+    border-collapse: collapse;
+    margin: 90px auto;
+    width: 60%;
+    height: 300px;
+}
+
+#table th , #table td{
+    border: dashed rgb(202, 169, 20) 10px;
+    border-collapse: collapse;
+    padding: 20px;
+
+}
+#table th{
+    font-weight: bold;
+    font-size: 40px;
+    color: brown;
+}
+#table td{
+    font-size: 25px;
+    text-align: center;
+}
+#table td span{
+    color: #28e611;
+}
+
+
 table,th,td {
     border: solid black 1px;
     border-collapse: collapse;
   }
+
+
+  img{
+    width: 30%;
+    height: 200px;
+    margin: 20px;
+  }
+  #img1{
+      width: 100%;
+      height: 400px;
+      margin: 0;
+    }
+
+footer{
+    background-color: crimson;
+    padding: 40px;
+    text-align: center;
+    color: darkgray;
+}
+
+footer h3{
+    font-size: 40px;
+    margin: 20px;
+}
+
+footer ul li{
+    padding: 10px;
+    font-size: 17px;
+
+}
+
+footer p{
+    color: black;
+}
