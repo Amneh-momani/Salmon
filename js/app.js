@@ -305,45 +305,26 @@ function Country(name, min, max, avg, avgArr, custn, total) {
   this.avgArr = avgArr;
   this.custn = custn;
   this.total = total;
-  this.custNum = function () {
-
-    for (let i = 0; i < hour.length; i++) {
-      let x = getRandomArbitrary(this.min, this.max);
-      this.custn.push(Math.floor(x));
-    }
-  };
-  this.sumFun = function () {
-    let multi = 1;
-    for (let n = 0; n < hour.length; n++) {
-      multi = this.custn[n] * this.avg;
-      this.avgArr.push(multi);
-      this.total += this.avgArr[n];
-    }
-  };
   totalHours.push(this);
 
 
 }
 
-let Seattle = new Country('Seattle', 23, 65, 6.3, [], [], 0);
+Country.prototype.custNum = function () {
+  for (let i = 0; i < hour.length; i++) {
+    let x = getRandomArbitrary(this.min, this.max);
+    this.custn.push(Math.floor(x));
+  }
+};
 
-Seattle.custNum();
-Seattle.sumFun();
-
-let Tokyo = new Country('Tokyo', 3, 24, 1.2, [], [], 0);
-Tokyo.custNum();
-Tokyo.sumFun();
-
-let Dubai = new Country('Dubai', 11, 38, 3.7, [], [], 0);
-Dubai.custNum();
-Dubai.sumFun();
-let Paris = new Country('Paris', 20, 38, 2.3, [], [], 0);
-Paris.custNum();
-Paris.sumFun();
-
-let Lima = new Country('Lima', 2, 16, 4.6, [], [], 0);
-Lima.custNum();
-Lima.sumFun();
+Country.prototype.sumFun = function () {
+  let multi = 1;
+  for (let n = 0; n < hour.length; n++) {
+    multi = this.custn[n] * this.avg;
+    this.avgArr.push(multi);
+    this.total += this.avgArr[n];
+  }
+};
 
 
 let dialyCalc = 0;
@@ -354,22 +335,17 @@ let hourtotal = 0;
 Country.prototype.render = function () {
 
   let studentRow = document.createElement('tr');
-
   table.appendChild(studentRow);
   let nameTd = document.createElement('td');
-
   studentRow.appendChild(nameTd);
-
   nameTd.textContent = this.name;
-
-
 
   for (let x = 0; x < hour.length; x++) {
     let hourTd = document.createElement('td');
     studentRow.appendChild(hourTd);
     hourTd.textContent = Math.floor(this.avgArr[x]);
-
   }
+
   let lastEle = document.createElement('td');
   studentRow.appendChild(lastEle);
   lastEle.textContent = Math.floor(this.total);
@@ -380,32 +356,17 @@ Country.prototype.render = function () {
 
 
 
-Seattle.render();
-Tokyo.render();
-Paris.render();
-Dubai.render();
-Lima.render();
+let Seattle = new Country('Seattle', 23, 65, 6.3, [], [], 0);
+let Tokyo = new Country('Tokyo', 3, 24, 1.2, [], [], 0);
+let Dubai = new Country('Dubai', 11, 38, 3.7, [], [], 0);
+let Paris = new Country('Paris', 20, 38, 2.3, [], [], 0);
+let Lima = new Country('Lima', 2, 16, 4.6, [], [], 0);
 
-
-Country.prototype.totalHour = function () {
-
-  for (let x = 0; x < hour.length; x++) {
-    hourtotal += Math.floor(this.avgArr[x]);
-  }
-  arrayHour.push(hourtotal);
-  // console.log(arrayHour);
-  hourtotal = 0;
-};
-
-for (let i = 0; i < hour.length; i++) {
-  Seattle.totalHour();
-  Tokyo.totalHour();
-  Paris.totalHour();
-  Dubai.totalHour();
-  Lima.totalHour();
+for (let y = 0; y < hour.length; y++) {
+  totalHours[y].custNum();
+  totalHours[y].sumFun();
+  totalHours[y].render();
 }
-
-
 
 function makingFooter() {
   let headingRow = document.createElement('tr');
@@ -415,9 +376,13 @@ function makingFooter() {
   thElement.textContent = 'Totals';
 
   for (let x = 0; x < hour.length; x++) {
+    for(let j=0;j<totalHours.length;j++){
+      hourtotal+= totalHours[x].avgArr[j];
+
+    }
     let thElement = document.createElement('th');
     headingRow.appendChild(thElement);
-    thElement.textContent = arrayHour[x];
+    thElement.textContent = hourtotal;
   }
   console.log();
   let lastElement = document.createElement('th');
