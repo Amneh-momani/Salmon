@@ -352,6 +352,62 @@ Country.prototype.render = function () {
 
 };
 
+// add event lisneter
+
+let salesform = document.getElementById('salesform');
+salesform.addEventListener('submit', saveChanges);
+
+function saveChanges(event) {
+  event.preventDefault();
+  // console.log(event);
+
+  let ShopName = event.target.nameField.value;
+
+  let mincust = event.target.numberField.value;
+  let maxcust = event.target.maxnumberField.value;
+  let avgcookie = event.target.avgnumberField.value;
+
+  // let addShop = new Country(ShopName, mincust, maxcust, avgcookie, [], [], 0);
+
+  // console.log(addShop);
+  if (mincust > maxcust) {
+    alert("please input number less than maxcust");
+    mincust.value="";
+  }
+else {
+  let addShop = new Country(ShopName, mincust, maxcust, avgcookie, [], [], 0);
+
+  table.textContent = '';
+
+  makingHeader();
+
+  for (let y = 0; y < totalHours.length; y++) {
+    totalHours[y].custNum();
+    totalHours[y].sumFun();
+    totalHours[y].render();
+  }
+
+  makingFooter();
+}
+  // let avgcookie = event.target.avgnumberField.value;
+
+  // let addShop = new Country(ShopName, mincust, maxcust, avgcookie, [], [], 0);
+
+  // console.log(addShop);
+
+  // table.textContent = '';
+
+  // makingHeader();
+
+  // for (let y = 0; y < totalHours.length; y++) {
+  //   totalHours[y].custNum();
+  //   totalHours[y].sumFun();
+  //   totalHours[y].render();
+  // }
+
+  // makingFooter();
+
+}
 
 function makingFooter() {
   let headingRow = document.createElement('tr');
@@ -389,6 +445,3 @@ for (let y = 0; y < totalHours.length; y++) {
 }
 
 makingFooter();
-
-
-
