@@ -361,8 +361,6 @@ function saveChanges(event) {
   event.preventDefault();
 
   let ShopName = event.target.nameField.value;
-
-
   let mincust = parseInt(event.target.numberField.value);
   let maxcust = parseInt(event.target.maxnumberField.value);
   let avgcookie = parseFloat(event.target.avgnumberField.value);
