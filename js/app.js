@@ -387,23 +387,6 @@ function saveChanges(event) {
 
     makingFooter();
   }
-  // let avgcookie = event.target.avgnumberField.value;
-
-  // let addShop = new Country(ShopName, mincust, maxcust, avgcookie, [], [], 0);
-
-  // console.log(addShop);
-
-  // table.textContent = '';
-
-  // makingHeader();
-
-  // for (let y = 0; y < totalHours.length; y++) {
-  //   totalHours[y].custNum();
-  //   totalHours[y].sumFun();
-  //   totalHours[y].render();
-  // }
-
-  // makingFooter();
 
 }
 
