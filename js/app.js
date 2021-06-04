@@ -362,9 +362,12 @@ function saveChanges(event) {
 
   let ShopName = event.target.nameField.value;
 
+
+
   let mincust = parseInt(event.target.numberField.value);
   let maxcust = parseInt(event.target.maxnumberField.value);
   let avgcookie = parseFloat(event.target.avgnumberField.value);
+ 
 
   if (mincust >= maxcust) {
     alert('please input number less than maxcust');
@@ -373,7 +376,20 @@ function saveChanges(event) {
   else {
     let addShop = new Country(ShopName, mincust, maxcust, avgcookie, [], [], 0);
 
+
     table.textContent = '';
+
+    makingHeader();
+
+    for (let y = 0; y < totalHours.length; y++) {
+      totalHours[y].custNum();
+      totalHours[y].sumFun();
+      totalHours[y].render();
+    }
+
+    makingFooter();
+  }
+  
 
     makingHeader();
 
