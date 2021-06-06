@@ -277,17 +277,22 @@ function makingHeader() {
   table.appendChild(headingRow);
   let thElement = document.createElement('th');
   headingRow.appendChild(thElement);
+  thElement.setAttribute('style','color:black;');
+
   thElement.textContent = 'name';
   for (let i = 0; i < hour.length; i++) {
 
 
     let thElement = document.createElement('th');
     headingRow.appendChild(thElement);
+    thElement.setAttribute('style','padding:5px;color:black;');
     thElement.textContent = hour[i];
 
   }
   let last = document.createElement('td');
   headingRow.appendChild(last);
+  last.setAttribute('style','padding:5px;color:black;');
+
   last.textContent = 'Daily Location Total';
 }
 makingHeader();
@@ -336,16 +341,19 @@ Country.prototype.render = function () {
   table.appendChild(studentRow);
   let nameTd = document.createElement('td');
   studentRow.appendChild(nameTd);
+  nameTd.setAttribute('style','padding:5px;color:#005792;');
   nameTd.textContent = this.name;
 
   for (let x = 0; x < hour.length; x++) {
     let hourTd = document.createElement('td');
     studentRow.appendChild(hourTd);
+    hourTd.setAttribute('style','padding:5px;');
     hourTd.textContent = Math.floor(this.avgArr[x]);
   }
 
   let lastEle = document.createElement('td');
   studentRow.appendChild(lastEle);
+  lastEle.setAttribute('style','padding:5px;text-align:center;');
   lastEle.textContent = Math.floor(this.total);
   dialyCalc += this.total;
 
@@ -381,6 +389,7 @@ function saveChanges(event) {
       totalHours[y].custNum();
       totalHours[y].sumFun();
       totalHours[y].render();
+
     }
 
     makingFooter();
@@ -394,6 +403,7 @@ function makingFooter() {
   let thElement = document.createElement('th');
   headingRow.appendChild(thElement);
   thElement.textContent = 'Totals';
+  thElement.setAttribute('style','padding:5px;background:red;');
 
   for (let x = 0; x < hour.length; x++) {
     let hourtotal = 0;
@@ -408,6 +418,8 @@ function makingFooter() {
   console.log();
   let lastElement = document.createElement('th');
   headingRow.appendChild(lastElement);
+  lastElement.setAttribute('style','padding:5px;background:black;color:red;');
+
   lastElement.textContent = Math.floor(dialyCalc);
 }
 
